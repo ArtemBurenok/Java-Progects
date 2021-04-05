@@ -8,11 +8,13 @@
     <form action="/planet/terminate" method="post">
         <input type="text" name="name" placeholder="Введите имя правителя">
         <input type="text" name="age" placeholder="Введите возраст правителя">
+        <input type="text" name="planet" placeholder="Введите планету правителя">
         <button type="submit">Добавить правителя</button>
     </form>
     <a href="/planet/terminate">Уничтожить планету</a><br>
     <a href="/planet">Создать планету</a><br>
 
     <div th:text="${resultSet}"></div>
+    <div th:text="${lounger}"></div>
 </body>
 </html>

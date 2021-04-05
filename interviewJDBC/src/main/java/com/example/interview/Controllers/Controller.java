@@ -29,17 +29,19 @@ public class Controller {
     }
 
     @PostMapping("/manager")
-    public String ManagerAdd(@RequestParam String name,@RequestParam int age, Model model) throws ClassNotFoundException {
+    public String ManagerAdd(@RequestParam String name,@RequestParam int age, @RequestParam String planet, Model model) throws ClassNotFoundException {
         Class.forName("org.postgresql.Driver");
         try (Connection connection = DriverManager.getConnection(connectionURL,
                 userName, password);
              Statement statement = connection.createStatement()){
             String nameManager = name;
             int ageManager = age;
-            statement.executeUpdate("INSERT INTO manager(name, ade) VALUES (nameManager, ageManager)");
+            statement.executeUpdate("INSERT INTO manager(name, ade, planet) VALUES (nameManager, ageManager, planet)");
 
             ResultSet resultSet = statement.executeQuery("SELECT name FROM manager ORDER BY ade LIMIT 10");
+            ResultSet Lounger = statement.executeQuery("SELECT name FROM manager ORDER BY ade LIMIT 10");
             model.addAttribute("resultSet", resultSet);
+            model.addAttribute("lounger", Lounger);
 
         }catch (SQLException trowables){
             trowables.printStackTrace();
