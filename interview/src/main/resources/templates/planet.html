@@ -1,0 +1,16 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Page</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<form action="/planet" method="post">
+    <input type="text" name="namePlanet" placeholder="Введите название планеты">
+    <input type="text" name="manager" placeholder="Введите id повелителя">
+    <button type="submit">Добавить планету</button>
+</form>
+<br/>
+<a href="/planet/terminate">Уничтожить планету</a>
+</body>
+</html>
